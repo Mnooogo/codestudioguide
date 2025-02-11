@@ -1,3 +1,4 @@
+/* Глобални стилове */
 * {
     margin: 0;
     padding: 0;
@@ -5,18 +6,21 @@
     font-family: Arial, sans-serif;
 }
 
-body {
+/* Основни настройки за тялото */
+html, body {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #2c4e39, #1f3520);
+    color: #1a944d;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: linear-gradient(to bottom, #2c4e39, #1f3520);
-    color: #1a944d;
-    height: 100vh;
     overflow-y: auto;
     padding-bottom: 50px;
     text-shadow: 1.5px 1px 2px #29270f;
 }
 
+/* Хедър */
 .header-container {
     width: 80%;
     background: linear-gradient(to bottom, #1F3D2B, #A54C2C);
@@ -28,6 +32,7 @@ body {
     border: 2px solid #af8507;
 }
 
+/* Дата и час */
 .time-container {
     font-size: 24px;
     color: #f8edfd;
@@ -35,6 +40,7 @@ body {
     text-shadow: 1.5px 1px 2px #d8ca02;
 }
 
+/* Основен контейнер */
 .content {
     margin-top: 20px;
     display: flex;
@@ -44,6 +50,7 @@ body {
     text-align: center;
 }
 
+/* Грид за бутоните */
 .button-grid {
     display: flex;
     flex-wrap: wrap;
@@ -53,6 +60,7 @@ body {
     margin-top: 20px;
 }
 
+/* Бутони за опциите */
 .option-button {
     width: 250px;
     padding: 15px;
@@ -60,20 +68,21 @@ body {
     font-weight: bold;
     color: white;
     background: linear-gradient(to bottom, #6b9474, #062c1f);
-    border: none;
+    border: 2px solid #d8b038;
     border-radius: 8px;
     cursor: pointer;
-    transition: 0.3s;
-    border: 2px solid #d8b038;
+    transition: all 0.3s ease;
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
     text-shadow: 1.5px 1px 2px #071f06;
 }
 
+/* Ефект при ховър */
 .option-button:hover {
     background: linear-gradient(to bottom, #223d2d, #577c50);
     transform: scale(1.05);
 }
 
+/* Футър */
 .footer-container {
     margin-top: 50px;
     padding: 15px;
@@ -83,12 +92,14 @@ body {
     text-shadow: 1.5px 1px 2px #242207;
 }
 
+/* Линкове във футъра */
 .footer-container a {
     color: #948321;
     text-decoration: none;
     font-weight: bold;
 }
 
+/* Ховър ефект за линковете */
 .footer-container a:hover {
     text-decoration: underline;
 }
