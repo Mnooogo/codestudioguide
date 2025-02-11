@@ -8,18 +8,18 @@
 </head>
 <body>
 
-    <!-- Header -->
-    <div class="header-container">
+    <!-- Header Section -->
+    <header class="header-container">
         <div class="time-container" id="current-time">Loading...</div>
         <h1>🚀 Code Studio Guide</h1>
         <p>Your AI-powered assistant for Visual Studio, Android Studio, Electron & Capacitor</p>
-    </div>
+    </header>
 
     <!-- Google Translate -->
     <div id="google_translate_element"></div>
 
-    <!-- Button Section -->
-    <div class="content">
+    <!-- Main Content -->
+    <main class="content">
         <h2>Explore Topics</h2>
         <div class="button-grid">
             <button class="option-button">📌 How to set up a new project in Visual Studio</button>
@@ -31,16 +31,17 @@
             <button class="option-button">📱 Publishing Android apps to Google Play</button>
             <button class="option-button">☁️ Integrating Firebase into an Android app</button>
         </div>
-    </div>
+    </main>
 
-    <!-- Footer -->
-    <div class="footer-container">
+    <!-- Footer Section -->
+    <footer class="footer-container">
         <p>Euroamazon SL LTD - Stefan Spasov, CEO</p>
         <p>Contact: <a href="tel:+359879289558">+359 879 28 95 58</a></p>
         <p>Email: <a href="mailto:amazon@vetom.bg">amazon@vetom.bg</a></p>
         <p id="copyright"></p>
-    </div>
+    </footer>
 
+    <!-- JavaScript for Time and Google Translate -->
     <script>
         function updateTime() {
             const now = new Date();
@@ -57,7 +58,8 @@
 
         document.getElementById("copyright").innerText = `© ${new Date().getFullYear()} All rights reserved under international copyright law.`;
     </script>
-    
+
+    <!-- Google Translate API -->
     <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
