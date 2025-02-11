@@ -7,30 +7,40 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>🚀 Code Studio Guide</h1>
-        <p>Your AI-powered assistant for Visual Studio, Android Studio, Electron & Capacitor</p>
-    </header>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 Code Studio Guide</h1>
+            <p>Your AI-powered assistant for Visual Studio, Android Studio, Electron & Capacitor</p>
+            <div class="time" id="time">Loading time...</div>
+        </div>
 
-    <section>
-        <h2>What Can You Learn Here?</h2>
-        <ul>
-            <li>📌 How to set up a new project in Visual Studio</li>
-            <li>🛠 Best debugging techniques for Android Studio</li>
-            <li>⚡ Creating Electron apps with Capacitor</li>
-            <li>🚀 Fixing Gradle sync errors</li>
-        </ul>
-    </section>
+        <div class="content">
+            <h2>What Can You Learn Here?</h2>
+            <div class="buttons">
+                <button class="custom-button">📌 How to set up a new project in Visual Studio</button>
+                <button class="custom-button">🛠 Best debugging techniques for Android Studio</button>
+                <button class="custom-button">⚡ Creating Electron apps with Capacitor</button>
+                <button class="custom-button">🚀 Fixing Gradle sync errors</button>
+            </div>
+        </div>
 
-    <section>
-        <h2>Try the AI Assistant</h2>
-        <p>Click the button below to ask Code Studio Guide anything!</p>
-        <a href="https://chat.openai.com/g/YOUR-GPT-ID" class="button">Ask Code Studio Guide</a>
-    </section>
+        <div class="footer">
+            <h2>Try the AI Assistant</h2>
+            <p>Click the button below to ask Code Studio Guide anything!</p>
+            <a href="https://chat.openai.com/g/YOUR-GPT-ID" class="ai-button">Ask Code Studio Guide</a>
+            <p>© 2024 Code Studio Guide - All rights reserved.</p>
+        </div>
+    </div>
 
-    <footer>
-        <p>© 2024 Code Studio Guide - All rights reserved.</p>
-    </footer>
+    <script>
+        function updateTime() {
+            const now = new Date();
+            document.getElementById('time').innerText = now.toLocaleString();
+        }
+        setInterval(updateTime, 1000);
+        updateTime();
+    </script>
 </body>
 </html>
+
 
