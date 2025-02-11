@@ -106,3 +106,29 @@ html, body {
     text-decoration: underline;
 }
 
+.ai-section {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.ai-button {
+    width: 300px;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(to bottom, #007BFF, #0044AA);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    text-shadow: 1.5px 1px 2px #000;
+    margin-top: 20px;
+}
+
+.ai-button:hover {
+    background: linear-gradient(to bottom, #0056b3, #003580);
+    transform: scale(1.05);
+    box-shadow: 0px 0px 15px rgba(0, 183, 255, 0.8);
+}
