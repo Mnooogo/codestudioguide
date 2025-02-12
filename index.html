@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
- <!-- Header -->
-   <!-- Header -->
+
+<!-- Header -->
 <div class="header-container">
     <div class="time-container" id="current-time">Loading...</div>
     <div class="welcome-container">
@@ -16,10 +16,18 @@
         <p>Your AI-powered assistant for Visual Studio, Android Studio, Electron & Capacitor.</p>
     </div>
     <div class="google-translate">
-                <div id="google_translate_element"></div>
-            </div>
-        
+        <div id="google_translate_element"></div>
+    </div>
 </div>
+
+<!-- Добавяме скрипт за Google Translate -->
+<script>
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+    }
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 
     <!-- Course Buttons -->
     <h2>Explore Topics</h2>
@@ -210,10 +218,6 @@
         }
     
         function setButtonLink() {
-
-              function googleTranslateElementInit() {
-            new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
-        }
 
          
     </script>
