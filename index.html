@@ -97,14 +97,18 @@
             hideContextMenu();
         }
 
-        function setButtonLink() {
-            const newURL = prompt("Enter new button URL:");
-            if (newURL) {
-                currentButton.onclick = () => window.open(newURL, '_blank');
-                saveButtons();
-            }
-            hideContextMenu();
-        }
+       function setButtonLink() {
+    const newURL = prompt("Enter new button URL:");
+    if (newURL) {
+        currentButton.setAttribute("data-url", newURL);
+        currentButton.onclick = function() { 
+            window.open(newURL, '_blank'); 
+        };
+        saveButtons();
+    }
+    hideContextMenu();
+}
+
 
         function removeButton() {
             currentButton.parentElement.remove();
