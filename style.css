@@ -10,7 +10,7 @@
 html, body {
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, #3a7d44, #226b33); /* По-светъл фон за по-добра видимост */
+    background: linear-gradient(to bottom, #5b9c65, #053510); /* По-светъл фон за по-добра видимост */
     color: #ffffff;
     display: flex;
     flex-direction: column;
@@ -23,13 +23,13 @@ html, body {
 /* Хедър */
 .header-container {
     width: 80%;
-    background: linear-gradient(to bottom, #007bff, #0056b3); /* По-ярък син */
+    background: linear-gradient(to bottom, #1F3D2B, #A54C2C);
     text-align: center;
     border-radius: 10px;
-    box-shadow: 0px 0px 15px rgba(0, 123, 255, 0.8);
+    box-shadow: 0px 0px 15px rgba(9, 25, 43, 0.8);
     padding: 20px;
     margin-top: 20px;
-    border: 2px solid #004488;
+    border: 2px solid #e9e50d;
 }
 
 /* Дата и час */
@@ -67,8 +67,8 @@ html, body {
     font-size: 16px;
     font-weight: bold;
     color: white;
-    background: linear-gradient(to bottom, #ffa500, #ffcc00); /* По-ярък оранжево-жълт градиент */
-    border: 2px solid #d8b038;
+    background: linear-gradient(to bottom, #daa138, #ffcc00); /* По-ярък оранжево-жълт градиент */
+    border: 2px solid #916f08;
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -78,9 +78,9 @@ html, body {
 
 /* Анимиран ефект при hover */
 .option-button:hover {
-    background: linear-gradient(to bottom, #ff8800, #ffaa00);
+    background: linear-gradient(to bottom, #ff8800, #835905);
     transform: scale(1.1);
-    box-shadow: 0px 0px 15px rgba(255, 223, 0, 0.8);
+    box-shadow: 0px 0px 15px rgba(136, 121, 25, 0.8);
 }
 
 /* Футър */
@@ -179,7 +179,7 @@ html, body {
     font-size: 16px;
     font-weight: bold;
     padding: 8px 12px;
-    width: 200px;
+    width: 250px;
     height: 50px;
     border-radius: 8px;
     text-shadow: 1px 1px 2px #001020;
@@ -215,12 +215,12 @@ html, body {
     }
 
     .header-container {
-        background: linear-gradient(to bottom, #ff5722, #e64a19);
+        background: linear-gradient(to bottom, #77240b, #e64a19);
     }
 
     .ai-button {
         width: 90%;
-        font-size: 20px;
+        font-size: 23px;
     }
 }
 
@@ -249,5 +249,6 @@ html, body {
     transform: scale(1.05);
     box-shadow: 0px 0px 15px rgba(0, 183, 255, 0.8);
 }
+
 
 
