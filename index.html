@@ -97,18 +97,14 @@
             hideContextMenu();
         }
 
-       function setButtonLink() {
-    const newURL = prompt("Enter new button URL:");
-    if (newURL) {
-        currentButton.setAttribute("data-url", newURL);
-        currentButton.onclick = function() { 
-            window.open(newURL, '_blank'); 
-        };
-        saveButtons();
-    }
-    hideContextMenu();
-}
-
+        function setButtonLink() {
+            const newURL = prompt("Enter new button URL:");
+            if (newURL) {
+                currentButton.setAttribute("data-url", newURL);
+                saveButtons();
+            }
+            hideContextMenu();
+        }
 
         function removeButton() {
             currentButton.parentElement.remove();
@@ -132,7 +128,10 @@
             button.oncontextmenu = function(event) { showContextMenu(event, button); };
 
             if (url) {
-                button.onclick = () => window.open(url, '_blank');
+                button.setAttribute("data-url", url);
+                button.onclick = function() { 
+                    window.open(url, '_blank'); 
+                };
             }
 
             container.appendChild(button);
@@ -142,7 +141,7 @@
         function saveButtons() {
             const buttons = [...document.querySelectorAll(".action-button")].map(btn => ({
                 label: btn.innerText,
-                url: btn.onclick ? btn.onclick.toString().split('"')[1] : ""
+                url: btn.getAttribute("data-url") || ""
             }));
             localStorage.setItem("buttons", JSON.stringify(buttons));
         }
@@ -160,6 +159,5 @@
 
 </body>
 </html>
-
 
 
