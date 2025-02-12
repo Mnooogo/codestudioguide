@@ -105,18 +105,23 @@
             }
             hideContextMenu();
         }
+     function removeButton() {
+    currentButton.parentElement.remove();
+    saveButtons();
+    hideContextMenu();
 
-        function removeButton() {
-            currentButton.parentElement.remove();
-            saveButtons();
-            hideContextMenu();
+    // Ако няма останали бутони, добави един
+    setTimeout(() => {
+        if (document.querySelectorAll(".action-button").length === 0) {
+            addNewButton();
         }
+    }, 200);
+}
 
-        function addNewButton() {
-            createButton("New Button", "");
-            saveButtons();
-            hideContextMenu();
-        }
+       function addNewButton() {
+    createButton("New Button", "");
+    saveButtons();
+}
 
         function createButton(label, url) {
             const container = document.createElement("div");
@@ -147,11 +152,15 @@
         }
 
         function loadButtons() {
-            const savedButtons = JSON.parse(localStorage.getItem("buttons")) || [];
-            document.getElementById("buttonContainer").innerHTML = "";
-            savedButtons.forEach(btn => createButton(btn.label, btn.url));
-        }
+    const savedButtons = JSON.parse(localStorage.getItem("buttons")) || [];
 
+    document.getElementById("buttonContainer").innerHTML = ""; // Изчистваме преди добавяне
+    if (savedButtons.length === 0) {
+        addNewButton(); // Ако няма бутони, добавяме един по подразбиране
+    } else {
+        savedButtons.forEach(btn => createButton(btn.label, btn.url));
+    }
+}
         document.getElementById("copyright").innerText = `© ${new Date().getFullYear()} All rights reserved under international copyright law.`;
 
         loadButtons();
@@ -196,6 +205,10 @@
         function setButtonLink() {
          
     </script>
+<!-- Static Button to Always Allow Adding New Custom Buttons -->
+<div class="add-button-container">
+    <button class="add-button" onclick="addNewButton()">➕ Add Custom Button</button>
+</div>
 
 </body>
 </html>
