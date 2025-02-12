@@ -40,6 +40,10 @@ html, body {
     text-shadow: 1.5px 1px 2px #d8ca02;
 }
 
+.google-translate {
+            padding-left: 20px;
+        }
+
 /* Контейнер за бутоните - хоризонтално подреждане */
 .content {
     display: flex;
