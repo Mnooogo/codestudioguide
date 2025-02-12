@@ -117,7 +117,7 @@ html, body {
     font-size: 18px;
     font-weight: bold;
     color: white;
-    background: linear-gradient(to bottom, #117a8b, #19b5fe);
+    background: linear-gradient(to bottom, #eee34c, #a0420b);
     border: none;
     border-radius: 10px;
     cursor: pointer;
@@ -129,7 +129,7 @@ html, body {
 
 /* Ховър ефект */
 .ai-button:hover {
-    background: linear-gradient(to bottom, #0d5a72, #18a2c4);
+    background: linear-gradient(to bottom, #9fa108, #e4b45d);
     transform: scale(1.05);
     box-shadow: 0px 0px 15px rgba(0, 183, 255, 0.8);
 }
