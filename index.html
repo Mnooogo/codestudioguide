@@ -7,47 +7,65 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Header Section -->
-    <header class="header-container">
+
+    <!-- Header -->
+    <div class="header-container">
         <div class="time-container" id="current-time">Loading...</div>
-        <h1>🚀 Code Studio Guide</h1>
-        <p>Your AI-powered assistant for Visual Studio, Android Studio, Electron & Capacitor</p>
-    </header>
+        <div class="welcome-container">
+            <h2>Welcome to Code Studio Guide</h2>
+            <p>Your AI-powered assistant for Visual Studio, Android Studio, Electron & Capacitor.</p>
+        </div>
+    </div>
 
     <!-- Google Translate -->
     <div id="google_translate_element"></div>
 
-    <!-- Main Content -->
-    <main class="content">
-        <h2>Explore Topics</h2>
- <div class="button-grid">
-    <button class="option-button" onclick="window.location.href='lessons/visual-studio.html'">📌 How to set up a new project in Visual Studio</button>
-    <button class="option-button" onclick="window.location.href='lessons/android-debugging.html'">🛠 Best debugging techniques for Android Studio</button>
-    <button class="option-button" onclick="window.location.href='lessons/electron-capacitor.html'">⚡ Creating Electron apps with Capacitor</button>
-    <button class="option-button" onclick="window.location.href='lessons/gradle-fix.html'">🚀 Fixing Gradle sync errors</button>
-    <button class="option-button" onclick="window.location.href='lessons/deploy-electron.html'">📦 How to package and deploy Electron apps</button>
-    <button class="option-button" onclick="window.location.href='lessons/git-github.html'">💾 Using Git and GitHub in Visual Studio</button>
-    <button class="option-button" onclick="window.location.href='lessons/android-publishing.html'">📱 Publishing Android apps to Google Play</button>
-    <button class="option-button" onclick="window.location.href='lessons/firebase-integration.html'">☁️ Integrating Firebase into an Android app</button>
-</div>
-<div class="ai-section">
-    <h2>Need Help? Ask our AI Assistant! 🤖</h2>
-    <button class="ai-button" onclick="window.open('https://chatgpt.com/g/g-lfs8twKFB-code-studio-guide', '_blank')">🤖 Ask Code Studio AI <span style="font-size: 14px;">🔗</span></button>
-</div>
+    <!-- Course Buttons -->
+    <h2>Explore Topics</h2>
+    <div class="button-grid">
+        <button class="option-button" onclick="window.location.href='lessons/visual-studio.html'">📌 How to set up a new project in Visual Studio</button>
+        <button class="option-button" onclick="window.location.href='lessons/android-debugging.html'">🛠 Best debugging techniques for Android Studio</button>
+        <button class="option-button" onclick="window.location.href='lessons/electron-capacitor.html'">⚡ Creating Electron apps with Capacitor</button>
+        <button class="option-button" onclick="window.location.href='lessons/gradle-fix.html'">🚀 Fixing Gradle sync errors</button>
+        <button class="option-button" onclick="window.location.href='lessons/deploy-electron.html'">📦 How to package and deploy Electron apps</button>
+        <button class="option-button" onclick="window.location.href='lessons/git-github.html'">💾 Using Git and GitHub in Visual Studio</button>
+        <button class="option-button" onclick="window.location.href='lessons/android-publishing.html'">📱 Publishing Android apps to Google Play</button>
+        <button class="option-button" onclick="window.location.href='lessons/firebase-integration.html'">☁️ Integrating Firebase into an Android app</button>
+    </div>
 
+    <!-- Dynamic Buttons -->
+    <h2>Custom Buttons</h2>
+    <div class="content" id="buttonContainer"></div>
 
-    </main>
+    <!-- Right-click context menu -->
+    <div class="context-menu" id="contextMenu">
+        <button onclick="renameButton()">Rename Button</button>
+        <button onclick="setButtonLink()">Set Button URL</button>
+        <button onclick="removeButton()">Remove Button</button>
+        <button onclick="addNewButton()">Add New Button</button>
+        <button onclick="hideContextMenu()">Cancel</button>
+    </div>
 
-    <!-- Footer Section -->
-    <footer class="footer-container">
+    <!-- AI Assistant Button -->
+    <div class="ai-section">
+        <h2>Need Help? Ask our AI Assistant! 🤖</h2>
+        <button class="ai-button" onclick="window.open('https://chatgpt.com/g/g-lfs8twKFB-code-studio-guide', '_blank')">
+            🤖 Ask Code Studio AI <span style="font-size: 14px;">🔗</span>
+        </button>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer-container">
         <p>Euroamazon SL LTD - Stefan Spasov, CEO</p>
         <p>Contact: <a href="tel:+359879289558">+359 879 28 95 58</a></p>
         <p>Email: <a href="mailto:amazon@vetom.bg">amazon@vetom.bg</a></p>
         <p id="copyright"></p>
-    </footer>
+    </div>
 
-    <!-- JavaScript for Time and Google Translate -->
+    <!-- JavaScript -->
     <script>
+        let currentButton = null;
+
         function updateTime() {
             const now = new Date();
             const options = { weekday: 'long' };
@@ -57,17 +75,87 @@
         setInterval(updateTime, 1000);
         updateTime();
 
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+        function showContextMenu(event, button) {
+            event.preventDefault();
+            currentButton = button;
+            const menu = document.getElementById('contextMenu');
+            menu.style.display = 'flex';
+            menu.style.left = `${event.pageX}px`;
+            menu.style.top = `${event.pageY}px`;
+        }
+
+        function hideContextMenu() {
+            document.getElementById('contextMenu').style.display = 'none';
+        }
+
+        function renameButton() {
+            const newName = prompt("Enter new button label:");
+            if (newName) {
+                currentButton.innerText = newName;
+                saveButtons();
+            }
+            hideContextMenu();
+        }
+
+        function setButtonLink() {
+            const newURL = prompt("Enter new button URL:");
+            if (newURL) {
+                currentButton.onclick = () => window.open(newURL, '_blank');
+                saveButtons();
+            }
+            hideContextMenu();
+        }
+
+        function removeButton() {
+            currentButton.parentElement.remove();
+            saveButtons();
+            hideContextMenu();
+        }
+
+        function addNewButton() {
+            createButton("New Button", "");
+            saveButtons();
+            hideContextMenu();
+        }
+
+        function createButton(label, url) {
+            const container = document.createElement("div");
+            container.classList.add("button-container");
+
+            const button = document.createElement("button");
+            button.classList.add("action-button");
+            button.innerText = label;
+            button.oncontextmenu = function(event) { showContextMenu(event, button); };
+
+            if (url) {
+                button.onclick = () => window.open(url, '_blank');
+            }
+
+            container.appendChild(button);
+            document.getElementById("buttonContainer").appendChild(container);
+        }
+
+        function saveButtons() {
+            const buttons = [...document.querySelectorAll(".action-button")].map(btn => ({
+                label: btn.innerText,
+                url: btn.onclick ? btn.onclick.toString().split('"')[1] : ""
+            }));
+            localStorage.setItem("buttons", JSON.stringify(buttons));
+        }
+
+        function loadButtons() {
+            const savedButtons = JSON.parse(localStorage.getItem("buttons")) || [];
+            document.getElementById("buttonContainer").innerHTML = "";
+            savedButtons.forEach(btn => createButton(btn.label, btn.url));
         }
 
         document.getElementById("copyright").innerText = `© ${new Date().getFullYear()} All rights reserved under international copyright law.`;
-    </script>
 
-    <!-- Google Translate API -->
-    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        loadButtons();
+    </script>
 
 </body>
 </html>
+
 
 
