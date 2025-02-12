@@ -40,14 +40,16 @@ html, body {
     text-shadow: 1.5px 1px 2px #d8ca02;
 }
 
-/* Основен контейнер */
+/* Контейнер за бутоните - хоризонтално подреждане */
 .content {
-    margin-top: 20px;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start; /* Подравняване отляво */
     align-items: center;
-    width: 100%;
-    text-align: center;
+    gap: 15px; /* Разстояние между бутоните */
+    width: 90%;
+    max-width: 1200px;
+    margin-top: 20px;
 }
 
 /* Грид за бутоните */
@@ -178,22 +180,28 @@ html, body {
     color: #ffffff;
     font-size: 16px;
     font-weight: bold;
-    padding: 8px 12px;
-    width: 250px;
+    padding: 10px 20px;
+    width: auto; /* Размерът ще бъде според съдържанието */
     height: 50px;
     border-radius: 8px;
     text-shadow: 1px 1px 2px #001020;
     transition: all 0.3s ease;
     cursor: pointer;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap; /* Запазва текста в един ред */
+    min-width: 150px; /* Минимална ширина */
 }
 
-/* Ефект при hover за новите бутони */
+/* Ховър ефект за новите бутони */
 .action-button:hover {
     background: linear-gradient(to bottom, #004488, #33ccff);
     transform: scale(1.05);
     box-shadow: 0px 0px 12px rgba(0, 170, 255, 0.8);
 }
+
 
 /* Google Translate - позициониране в дясно */
 .translate-container {
@@ -228,6 +236,17 @@ html, body {
     .ai-button {
         width: 90% !important;
         font-size: 23px !important;
+    }
+}
+@media (max-width: 768px) {
+    .content {
+        justify-content: center; /* Центриране на мобилни устройства */
+        flex-wrap: wrap;
+    }
+
+    .action-button {
+        width: 45%;
+        min-width: 120px;
     }
 }
 
