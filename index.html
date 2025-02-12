@@ -155,6 +155,46 @@
         document.getElementById("copyright").innerText = `© ${new Date().getFullYear()} All rights reserved under international copyright law.`;
 
         loadButtons();
+
+    </script>
+
+    <script>
+         let currentButton = null;
+    
+        function updateTime() {
+            const now = new Date();
+            const options = { weekday: 'long' };
+            document.getElementById('current-time').innerText =
+                `${now.toLocaleDateString()} - ${new Intl.DateTimeFormat('en-US', options).format(now)}, ${now.toLocaleTimeString()}`;
+        }
+    
+        setInterval(updateTime, 1000);
+        updateTime();
+    
+        function showContextMenu(event, button) {
+            event.preventDefault();
+            currentButton = button;
+            const menu = document.getElementById('contextMenu');
+            menu.style.display = 'flex';
+            menu.style.left = `${event.pageX}px`;
+            menu.style.top = `${event.pageY}px`;
+        }
+    
+        function hideContextMenu() {
+            document.getElementById('contextMenu').style.display = 'none';
+        }
+    
+        function renameButton() {
+            const newName = prompt("Enter new button label:");
+            if (newName) {
+                currentButton.innerText = newName;
+                saveButtons();
+            }
+            hideContextMenu();
+        }
+    
+        function setButtonLink() {
+         
     </script>
 
 </body>
